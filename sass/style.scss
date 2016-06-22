@@ -1,0 +1,229 @@
+@charset "UTF-8";
+@import "reset.scss";
+@import "initialization.scss";
+
+body {
+	max-width: 768px;
+	margin: 0 auto;
+	background-color: #105183;
+}
+
+.body-for-wechat {
+	@include normalGradient(linear, top, #0a3964 12%, #105183 83%);
+}
+
+$img-url: '../images/';
+
+%color333 {
+	color: #333;
+}
+
+%color999 {
+	color: #999;
+}
+
+%btnClick {
+	-webkit-tap-highlight-color:transparent;
+}
+
+.image {
+	font-size: 0;
+	@extend %relative;
+}
+
+.image-alpha {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+.header-sub {
+	@extend %relative;
+
+	.qr-code {
+		position: absolute;
+		top: 8%;
+		left: 6%;
+		width: 34%;
+		z-index: 1;
+	}
+}
+
+.header-sub-wechat {
+	@extend %relative;
+
+	.qr-code {
+		position: absolute;
+		top: 10%;
+		left: 26%;
+		width: 48%;
+		z-index: 1;
+	}
+}
+
+.info-block {
+	width: 93%;
+	padding: 20px 0;
+	margin: 0 auto 20px;
+	background-color: rgba(255, 255, 255, 0.1);
+	overflow: hidden;
+	@extend %relative;
+	@extend %radiu;
+
+	.title-wrapper {
+		display: flex;
+		flex-flow: row wrap;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.title {
+		width: 50%;
+		flex: none;
+		align-self: center;
+		margin: 0 auto;
+		@extend %text-align;
+
+		span {
+			display: inline-block;
+			width: 54%;
+			height: 23px;
+			line-height: 23px;
+			background-color: rgba(2, 136, 209, 0.4);
+			color: #5dbbf5;
+			@extend %font-fifteen;
+			@extend %radiu;
+		}
+	}
+
+	.lists {
+		display: flex;
+		flex-flow: row wrap;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	li {
+		width: 50%;
+		flex: none;
+		align-self: center;
+		margin-top: 13px;
+		color: #fff;
+		@extend %relative;
+		@extend %float-left;
+		@extend %text-align;
+	}
+
+	.versus {
+		width: 50%;
+	}
+
+	.vs-left {
+		@extend %float-left;
+	}
+
+	.vs-right {
+		@extend %float-right;
+	}
+
+	.national-flag {
+		width: 36px;
+		height: 36px;
+		margin: 0 auto;
+		background: url(#{$img-url}act-europapokal-national-flags.png) no-repeat;
+		background-size: 100%;
+	}
+
+	@for $i from 1 through 25 {
+		.flag-#{$i} {
+			background-position: center ( - 36 * ( $i - 1 ) ) + px;
+		}
+	}
+
+	.national-name {
+		margin-top: 3px;
+		@extend %font-thirteen;
+	}
+
+	.versus-info {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 36px;
+		margin-left: -18px;
+
+		.time {
+			padding-bottom: 2px;
+			border-bottom: 3px solid #fff;
+		}
+
+		.serial {
+			width: 25px;
+			height: 12px;
+			line-height: 12px;
+			margin: 6px auto 0;
+			background-color: #ffecb1;
+			color: #105183;
+			border-radius: 1px;
+			@extend %text-align;
+			@extend %font-thirteen;
+			@extend %font-arial;
+		}
+	}
+}
+
+.unstart {
+	&:after {
+		position: absolute;
+		top: 14px;
+		left: -18px;
+		width: 78px;
+		height: 16px;
+		line-height: 15px;
+		background-color: #ffecb1;
+		color: #105183;
+		@extend %text-align;
+		@extend %font-twelve;
+		@include transform(-45);
+	}
+}
+
+.eighth {
+	&:after {
+		content: '1/8 决赛';
+	}
+}
+
+.quarter {
+	&:after {
+		content: '1/4 决赛';
+	}
+}
+
+.half {
+	&:after {
+		content: '1/2 决赛';
+	}
+}
+
+.final {
+	li {
+		margin: 13px auto 0;
+	}
+
+	&:after {
+		content: '决赛';
+	}
+}
+
+footer {
+	.image {
+		width: 94%;
+		margin: 0 auto;
+		padding-top: 19px;
+	}
+}

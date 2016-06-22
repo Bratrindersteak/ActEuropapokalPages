@@ -1,0 +1,1 @@
+define(function(e,n,o){var t=e("zepto");e("base"),e("wechat");t(function(){t(".wrap").on("click",".return",function(){window.history.length<3?window.location.href="/":window.history.go(-1)}),t("img.lazy").lazyload({effect:"fadeIn",threshold:200,effectspeed:200})})});

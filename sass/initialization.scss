@@ -1,0 +1,212 @@
+//public gradient function.
+@mixin normalGradient($type, $direction, $startColor, $endColor) {
+  background-image: -moz-#{$type}-gradient($direction, #{$startColor}, #{$endColor});// for Firefox.
+  background-image: -webkit-#{$type}-gradient($direction,#{$startColor}, #{$endColor});// for new chrome.
+  
+  @if $direction == top {
+   background-image: -webkit-gradient(#{$type}, $direction, bottom, from(#{$startColor}), to(#{$endColor}));// for old chrome.
+  } @else if $direction == left {
+    background-image: -webkit-gradient(#{$type}, $direction, right, from(#{$startColor}), to(#{$endColor}));// for old chrome.
+  }
+  
+  background-image: -o-#{$type}-gradient($direction, #{$startColor}, #{$endColor});// for opera.
+  background-image: -ms-#{$type}-gradient($direction, #{$startColor}, #{$endColor});// IE 10+.
+  
+  @if $type == linear {
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$startColor}, endColorstr=#{$endColor});// IE 9-.
+  } @else if $type == radial {
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#{$startColor}, endColorstr=#{$endColor});// IE 9-.
+  }
+}
+
+@mixin boxShadow($boxShadow) {
+	box-shadow: $boxShadow;
+}
+
+@mixin transition($duration) {
+	transition: #{$duration}s;
+	-moz-transition: #{$duration}s;
+	-webkit-transition: #{$duration}s;
+	-o-transition: #{$duration}s;
+}
+
+@mixin transform($angle) {
+	transform: rotate(#{$angle}deg);
+	-webkit-transform: rotate(#{$angle}deg);
+	-moz-transform: rotate(#{$angle}deg);
+	-ms-transform: rotate(#{$angle}deg);
+	-o-transform: rotate(#{$angle}deg);
+}
+
+$ie7-: '+';
+$img-prefix: '../../';
+
+%float-left {
+	float: left;
+}
+
+ %float-right {
+ 	float: right;
+}
+
+%margin-top-twenty {
+	margin-top: 20px;
+}
+
+%top-block-div-height {
+	height: 445px;
+}
+
+%right-box-children {
+	margin-top: 12px;
+	border: 1px solid #f0f0f0;
+}
+
+%block-title-border {
+	padding-bottom: 6px;
+	border-bottom: 1px solid #f39800;
+}
+
+%block-title {
+	line-height: 22px;
+	margin-top: 3px;
+	padding-left: 10px;
+	border-left: 3px solid #f29600;
+	font-size: 22px;
+}
+
+%car-li {
+	position: relative;
+	height: 291px;
+	margin: 20px 0 0 20px;
+	border: 1px solid #f0f0f0;
+	@extend %float-left;
+	@extend %radiu;
+}
+
+%blue-btn {
+	height: 38px;
+	line-height: 38px;
+	color: #fff;
+	@extend %text-align;
+	@extend %font-sixteen;
+	@include normalGradient(linear, top, #3883cc, #0e65bb);
+	@extend %radiu;
+}
+
+%select {
+	position: relative;
+	height: 44px;
+	line-height: 44px;
+	margin-bottom: 24px;
+	padding-left: 12px;
+	border: 1px solid #ddd;
+	outline: none;
+	@extend %font-fourteen;
+}
+
+%relative {
+	position: relative;
+}
+
+%absolute {
+	position: absolute;
+}
+
+%text-align {
+	text-align: center;
+}
+
+%a-block {
+	display: block;
+	height: 100%;
+}
+
+%border-e6 {
+	border: 1px solid #e6e6e6;
+}
+
+%font-weight {
+	font-weight: bold;
+}
+
+%font-twelve {
+	font-size: 12px;
+}
+
+%font-thirteen {
+	font-size: 13px;
+}
+
+%font-fourteen {
+	font-size: 14px;
+}
+
+%font-fifteen {
+	font-size: 15px;
+}
+
+%font-sixteen {
+	font-size: 16px;
+}
+
+%font-seventeen {
+	font-size: 17px;
+}
+
+%font-eighteen {
+	font-size: 18px;
+}
+
+%font-ninteen {
+	font-size: 19px;
+}
+
+%font-twenty {
+	font-size: 20px;
+}
+
+%font-twenty-two {
+	font-size: 22px;
+}
+
+%font-twenty-four {
+	font-size: 24px;
+}
+
+%font-twenty-five {
+	font-size: 25px;
+}
+
+%font-arial {
+	font-family: Arial;
+}
+
+%font-yahei {
+	font-family: Microsoft Yahei;
+}
+
+%font-normal {
+	font-weight: normal;
+}
+
+%radiu {
+	border-radius: 5px;
+}
+
+%iautos-orange {
+	color: #f29600;
+}
+
+%after-arrow {
+	content: '';
+	position: absolute;
+	width: 4px;
+	height: 4px;
+}
+
+%single-line-ellipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
